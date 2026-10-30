@@ -310,6 +310,59 @@ footer .in{max-width:1180px;margin:0 auto;display:flex;flex-wrap:wrap;gap:8px 28
 .panel ul.fr li small{font:400 12.5px var(--sans);color:var(--mute);margin-left:6px}
 .legend .all{font-weight:700}
 .sel-tags{display:flex;gap:6px;flex-wrap:wrap;margin:2px 0 0}
+
+/* lotes: resumen + tarjetas */
+.lsum{display:grid;grid-template-columns:1fr 1fr;gap:clamp(18px,4vw,50px);align-items:center;margin-top:30px}
+@media(max-width:760px){.lsum{grid-template-columns:1fr}}
+.lsum-map{background:var(--paper);border:1px solid rgba(18,32,28,.18);padding:8px}
+.lsum-data .tot{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+.lsum-data .tot div{border-top:2px solid var(--ink);padding-top:8px}
+.lsum-data .tot b{display:block;font:500 clamp(22px,3.4vw,34px)/1.05 var(--serif)}
+.lsum-data .tot span{font:600 11px var(--cond);letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.lsum-data h4{font:600 11px var(--cond);letter-spacing:.18em;text-transform:uppercase;color:var(--terra);margin:20px 0 8px}
+ul.lfr{list-style:none;padding:0;display:grid;gap:7px;font-size:14px;color:var(--ink2)}
+ul.lfr li span{font:500 21px var(--serif);color:var(--ink)}
+ul.lfr li small{font:400 12.5px var(--sans);color:var(--mute);margin-left:6px}
+.lhead{display:flex;justify-content:space-between;align-items:center;gap:14px;margin:36px 0 14px}
+.lcount{display:block;font:500 clamp(22px,4vw,30px) var(--serif)}
+.lhint{display:block;font:600 11px var(--cond);letter-spacing:.14em;text-transform:uppercase;color:var(--terra);margin-top:2px}
+.lctl{display:flex;gap:10px;flex:none}
+.lctl button{width:48px;height:48px;border-radius:50%;border:1.5px solid var(--ink);background:var(--paper);font:600 22px var(--sans);color:var(--ink);cursor:pointer;transition:.2s}
+.lctl button:hover:not(:disabled){background:var(--ink);color:var(--paper)}
+.lctl button:disabled{opacity:.3;cursor:default}
+.ltrack{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;position:relative;
+  margin:0 calc(-1*var(--pad));padding:4px var(--pad) 14px;scroll-padding-left:var(--pad);scrollbar-width:none}
+.ltrack::-webkit-scrollbar{display:none}
+.lcard{flex:0 0 min(84%,420px);scroll-snap-align:start;background:var(--paper);border:1px solid rgba(18,32,28,.2);border-top:6px solid var(--c);display:flex;flex-direction:column}
+.lcard .lmap{background:var(--paper2);padding:6px;border-bottom:1px solid rgba(18,32,28,.12)}
+.lcard .lmap svg{max-height:210px}
+.lcard .lmap .lot{pointer-events:none;cursor:default}
+.lcard .lbody{padding:18px 18px 16px;display:flex;flex-direction:column;flex:1}
+.lcard .ltg{font:600 11px var(--cond);letter-spacing:.2em;text-transform:uppercase;color:var(--terra)}
+.lcard h3{font-size:34px;margin:4px 0 0}
+.lcard .lbig{font:500 clamp(34px,9vw,44px)/1.05 var(--serif);margin-top:6px}
+.lcard .lbig small{font-size:.45em;margin-left:4px;color:var(--mute)}
+.lcard dl{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin:12px 0 2px}
+.lcard dt{font:600 11px var(--cond);letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.lcard dd{font:500 20px var(--serif);margin-top:2px}
+.lcard svg.pd{width:100%;height:auto;max-height:230px;display:block;margin:12px 0 4px;overflow:visible}
+.lcard .shape{fill:var(--c);fill-opacity:.25;stroke:var(--c);stroke-width:2}
+.lcard .front{stroke:var(--terra);stroke-width:5;stroke-linecap:round}
+.lcard .dl{font:700 17px var(--cond);fill:var(--ink);letter-spacing:.04em}
+.lcard ul.lfr{border-top:1px solid rgba(18,32,28,.15);padding-top:10px;margin-top:auto}
+.lcard ul.lfr b{font:600 11px var(--cond);letter-spacing:.14em;text-transform:uppercase;color:var(--mute);display:block}
+.ldots{display:flex;justify-content:center;gap:0;margin-top:0}
+.ldots button{width:44px;height:44px;border:0;background:none;cursor:pointer;padding:0;position:relative}
+.ldots button:before{content:"";position:absolute;left:50%;top:50%;width:12px;height:12px;margin:-6px 0 0 -6px;border-radius:50%;background:rgba(18,32,28,.28);transition:.25s}
+.ldots button.on:before{background:var(--terra);transform:scale(1.35)}
+.ltrack{overscroll-behavior-x:contain}
+.ltrack:focus-visible{outline:2px solid var(--terra);outline-offset:2px}
+@media(min-width:900px){
+  .ltrack{display:grid;grid-template-columns:repeat(3,1fr);overflow:visible;margin:0;padding:4px 0 0;gap:18px}
+  .lcard{flex:none}
+  .lhead .lctl,.lhint,.ldots,.lcount{display:none}
+  .lhead{margin:30px 0 0}
+}
 #tip{position:fixed;z-index:120;pointer-events:none;background:var(--ink);color:var(--paper);padding:10px 14px;font:600 12px/1.35 var(--cond);letter-spacing:.08em;text-transform:uppercase;opacity:0;transition:opacity .15s;transform:translate(14px,14px);max-width:240px}
 #tip b{display:block;font:500 22px/1.1 var(--serif);letter-spacing:0;text-transform:none;color:var(--ochre)}
 #tip.on{opacity:1}
@@ -486,16 +539,18 @@ footer .in{max-width:1180px;margin:0 auto;display:flex;flex-wrap:wrap;gap:8px 28
   <div class="in">
     <div class="kicker rv"><b>08</b> Los lotes</div>
     <h2 class="rv" style="--d:1">Cinco lotes, un solo bloque, con sus medidas</h2>
-    <p class="lead rv" style="--d:2">Toca uno o varios lotes: verás su ficha, sus dimensiones y, en conjunto, el frente que suman sobre cada vialidad.</p>
-    <div class="lotsgrid">
-      <div class="rv">
-        <div class="mapbox"><div class="northarrow"><svg width="18" height="24" viewBox="0 0 18 24"><path d="M9 1 17 22 9 17 1 22Z" fill="#12201c"/></svg>N</div><svg class="map" id="mapLots" role="group" aria-label="Plano interactivo de los lotes"></svg></div>
-        <div class="legend" id="legend"></div>
-        <p class="escala">Plano esquemático, orientado al norte. Toca varios lotes para sumar sus frentes; sin selección se muestra el bloque completo.</p>
-        <p class="nota" style="margin-top:14px">Medidas según el plano de lotes (abril de 2026); la superficie es la registrada para cada lote. Unidades a 300 u/ha proyectadas. Información de planeación sujeta a la aprobación del Programa de Desarrollo Urbano.</p>
-      </div>
-      <aside class="panel rv" id="panel" aria-live="polite" style="--d:1"></aside>
+    <p class="lead rv" style="--d:2">Primero el bloque completo; después, una tarjeta por cada lote con su ubicación, superficie, frente y dimensiones.</p>
+    <div class="lsum rv" style="--d:2">
+      <div class="lsum-map"><svg class="map" id="sumMap" role="img" aria-label="Plano esquemático de los cinco lotes"></svg></div>
+      <div class="lsum-data" id="sumData"></div>
     </div>
+    <div class="lhead rv" id="lhead">
+      <div><span class="lcount" id="lcount" aria-live="polite">Lote 1 de 5</span><span class="lhint">Desliza hacia los lados para ver cada lote</span></div>
+      <div class="lctl"><button type="button" id="lprev" aria-label="Lote anterior">←</button><button type="button" id="lnext" aria-label="Lote siguiente">→</button></div>
+    </div>
+    <div class="ltrack" id="ltrack" role="region" aria-label="Tarjetas de los lotes" tabindex="0"></div>
+    <div class="ldots" id="ldots"></div>
+    <p class="nota rv">Medidas según el plano de lotes (abril de 2026); la superficie es la registrada para cada lote. Plano esquemático, orientado al norte. Unidades a 300 u/ha proyectadas. Información de planeación sujeta a la aprobación del Programa de Desarrollo Urbano.</p>
   </div>
 </section>
 
@@ -663,36 +718,39 @@ function compSvg(sel,fr){
   });
   return svg+'</svg>';
 }
-const SEL=new Set(),mapLots=$('#mapLots'),lotEls=drawMap(mapLots,{interactive:true,tight:true}),panel=$('#panel'),tip=$('#tip');
-function showPanel(){
-  const sel=G.lots.map(l=>l.id).filter(id=>SEL.has(id)),all=!sel.length,ids=all?G.lots.map(l=>l.id):sel,ls=ids.map(byId);
-  lotEls.forEach(p=>{const on=SEL.has(p.dataset.id);p.classList.toggle('sel',on);p.classList.toggle('dim',!all&&!on)});
-  $$('#legend button').forEach(b=>{const id=b.dataset.id;b.style.opacity=id==='all'?(all?1:.6):(all||SEL.has(id)?1:.45)});
-  const m2=ls.reduce((a,l)=>a+l.m2,0),u=uSum(ls),fr=fronts(ids);
-  const title=ls.length===1?'Lote '+ls[0].id:(all?'Bloque completo · 5 lotes':ls.length+' lotes: '+ls.map(short).join(' + '));
-  const tag=ls.length===1?(ls[0].mza==='007'?'Manzana 007':'Manzana 006'):(all?'Sin selección':'Selección en conjunto');
-  const col=ls.length===1?COL[ls[0].id]:'var(--ink)';
-  let h='<div class="tg">'+tag+'</div><h3>'+title+'</h3><div class="sw" style="--c:'+col+'"></div>'+
-   '<dl><div><dt>Superficie</dt><dd>'+NF2(m2)+' m²</dd></div><div><dt>Unidades potenciales</dt><dd>≈ '+u+'</dd></div>'+
-   '<div><dt>Del bloque</dt><dd>'+(m2/TOTAL*100).toFixed(1)+'%</dd></div><div><dt>Hectáreas</dt><dd>'+(m2/10000).toFixed(2)+'</dd></div></dl>';
-  h+=ls.length===1?lotSvg(ls[0]):compSvg(ids,fr);
-  h+='<ul class="fr"><li><b>'+(ls.length===1?'Frente':'Frentes del conjunto')+'</b></li>'+fr.map(o=>'<li><span>'+fm(o.total)+'</span> '+o.name+(o.parts.length>1?'<small>('+o.parts.map(p=>short(byId(p[0]))+' '+NF2(p[1])).join(' + ')+')</small>':'')+'</li>').join('')+'</ul>';
-  if(ls.length===1){const d=DIM[ls[0].id];h+='<ul class="fr" style="border:0;padding-top:0;margin-top:4px"><li><b>Lados</b><span style="font-size:17px">'+[d.top,d.right,d.bottom,d.left].map(fm).join(' · ')+'</span><small>(perímetro '+fm(d.top+d.right+d.bottom+d.left)+')</small></li></ul>'}
-  h+='<p class="hint">Medidas lineales del plano de lotes; la superficie es la registrada. Un frente en conjunto suma lotes contiguos sobre la misma vialidad. Unidades a 300 u/ha proyectadas; información de planeación sujeta a la aprobación del PDU.</p>';
-  panel.innerHTML=h;
-}
-const toggle=id=>{SEL.has(id)?SEL.delete(id):SEL.add(id);showPanel()};
-lotEls.forEach(p=>{
-  const id=p.dataset.id,l=byId(id);
-  p.addEventListener('click',()=>toggle(id));
-  p.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();toggle(id)}});
-  p.addEventListener('mouseenter',()=>{tip.innerHTML=lotName(l)+'<b>'+NF2(l.m2)+' m²</b>';tip.classList.add('on')});
-  p.addEventListener('mousemove',e=>{tip.style.left=e.clientX+'px';tip.style.top=e.clientY+'px'});
-  p.addEventListener('mouseleave',()=>tip.classList.remove('on'));
+const ALL=G.lots.map(l=>l.id);
+const frLi=fr=>fr.map(o=>'<li><span>'+fm(o.total)+'</span> '+o.name+(o.parts.length>1?'<small>('+o.parts.map(p=>short(byId(p[0]))+' '+NF2(p[1])).join(' + ')+')</small>':'')+'</li>').join('');
+drawMap($('#sumMap'),{tight:true});
+$('#sumData').innerHTML='<div class="tot"><div><b>'+NF2(TOTAL)+' m²</b><span>Superficie</span></div><div><b>≈ '+uSum(G.lots)+'</b><span>Unidades potenciales</span></div><div><b>'+(TOTAL/10000).toFixed(2)+' ha</b><span>Hectáreas</span></div></div>'+
+  '<h4>Frentes del bloque</h4><ul class="lfr">'+frLi(fronts(ALL))+'</ul>';
+const track=$('#ltrack');
+G.lots.forEach((l,i)=>{
+  const d=DIM[l.id],fr=fronts([l.id]),c=document.createElement('article');
+  c.className='lcard';c.style.setProperty('--c',COL[l.id]);
+  c.innerHTML='<div class="lmap"><svg class="map" role="img" aria-label="Ubicación del '+lotName(l)+' en el bloque"></svg></div><div class="lbody">'+
+   '<div class="ltg">'+(l.mza==='007'?'Manzana 007':'Manzana 006')+' · tarjeta '+(i+1)+' de '+G.lots.length+'</div><h3>Lote '+l.id+'</h3>'+
+   '<div class="lbig">'+NF2(l.m2)+'<small>m²</small></div>'+
+   '<dl><div><dt>Unidades</dt><dd>≈ '+uLot(l)+'</dd></div><div><dt>Del bloque</dt><dd>'+(l.m2/TOTAL*100).toFixed(1)+'%</dd></div><div><dt>Hectáreas</dt><dd>'+(l.m2/10000).toFixed(2)+'</dd></div></dl>'+
+   lotSvg(l)+
+   '<ul class="lfr"><li><b>Frente</b></li>'+frLi(fr)+'<li><b style="margin-top:4px">Lados</b><span style="font-size:16px">'+[d.top,d.right,d.bottom,d.left].map(fm).join(' · ')+'</span><small>(perímetro '+fm(d.top+d.right+d.bottom+d.left)+')</small></li></ul></div>';
+  track.appendChild(c);
+  const sv=$('svg.map',c);drawMap(sv,{tight:true});
+  $$('.lot',sv).forEach(p=>p.classList.toggle('dim',p.dataset.id!==l.id));
+  $$('text.ll',sv).forEach(t=>{if(t.textContent!==l.label)t.remove()});
 });
-$('#legend').innerHTML='<button class="all" data-id="all"><i style="--c:var(--ink)"></i>Bloque completo</button>'+G.lots.map(l=>'<button data-id="'+l.id+'" style="--c:'+COL[l.id]+'"><i></i>'+short(l)+'</button>').join('');
-$$('#legend button').forEach(b=>b.onclick=()=>{if(b.dataset.id==='all'){SEL.clear();showPanel()}else toggle(b.dataset.id)});
-showPanel();
+const cards=$$('.lcard',track),dots=$('#ldots'),prev=$('#lprev'),next=$('#lnext');
+cards.forEach((c,i)=>{const b=document.createElement('button');b.type='button';b.setAttribute('aria-label','Ir al lote '+G.lots[i].id);b.onclick=()=>go(i);dots.appendChild(b)});
+let curL=0;
+const padL=()=>parseFloat(getComputedStyle(track).paddingLeft)||0;
+function go(i){i=Math.max(0,Math.min(cards.length-1,i));curL=i;$('#lcount').textContent='Lote '+(i+1)+' de '+cards.length;$$('button',dots).forEach((b,k)=>{b.classList.toggle('on',k===i);b.toggleAttribute('aria-current',k===i)});prev.disabled=i===0;next.disabled=i===cards.length-1;track.scrollTo({left:cards[i].offsetLeft-padL(),behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'auto':'smooth'})}
+function cur(){if(track.scrollLeft>=track.scrollWidth-track.clientWidth-4)return cards.length-1;let best=0,bd=1e9;cards.forEach((c,i)=>{const dd=Math.abs(c.offsetLeft-padL()-track.scrollLeft);if(dd<bd){bd=dd;best=i}});return best}
+function upd(){curL=cur();$('#lcount').textContent='Lote '+(curL+1)+' de '+cards.length;
+  $$('button',dots).forEach((b,i)=>{b.classList.toggle('on',i===curL);b.toggleAttribute('aria-current',i===curL)});prev.disabled=curL===0;next.disabled=curL===cards.length-1}
+track.addEventListener('scroll',()=>{clearTimeout(track._t);track._t=setTimeout(upd,60)},{passive:true});
+prev.onclick=()=>go(curL-1);next.onclick=()=>go(curL+1);
+track.addEventListener('keydown',e=>{if(e.key==='ArrowRight'){e.preventDefault();go(curL+1)}if(e.key==='ArrowLeft'){e.preventDefault();go(curL-1)}});
+const mq=matchMedia('(min-width:900px)'),tb=()=>mq.matches?track.removeAttribute('tabindex'):track.setAttribute('tabindex','0');tb();mq.addEventListener('change',tb);
+addEventListener('resize',upd);upd();
 
 /* ---------- radial de ubicación ---------- */
 (function(){
@@ -813,6 +871,7 @@ $$('#idx a').forEach(a=>a.addEventListener('click',()=>openIdx(false)));
 document.addEventListener('keydown',e=>{
   if(e.key==='Escape')openIdx(false);
   if(typeof lb!=='undefined'&&lb.classList.contains('open'))return;
+  if(document.activeElement&&['ltrack','lprev','lnext'].includes(document.activeElement.id))return;
   if(['INPUT','TEXTAREA','BUTTON'].includes(document.activeElement.tagName)&&e.key!=='ArrowRight'&&e.key!=='ArrowLeft')return;
   if(e.key==='ArrowRight'||e.key==='ArrowLeft'){const i=current();const j=Math.max(0,Math.min(secs.length-1,i+(e.key==='ArrowRight'?1:-1)));if(j!==i){e.preventDefault();secs[j].scrollIntoView({behavior:'smooth'})}}
 });
